@@ -9,10 +9,16 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/raleway": "^0.2.3",
+    "@expo/webpack-config": "^19.0.1",
     "expo": "~50.0.6",
+    "expo-image": "^1.10.6",
+    "expo-linear-gradient": "~12.7.1",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.4"
+    "react-dom": "^18.2.0",
+    "react-native": "0.73.4",
+    "react-native-web": "^0.19.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

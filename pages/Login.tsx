@@ -1,44 +1,52 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { 
+import {
     View,
-    Text, 
-    StyleSheet, 
+    Text,
+    StyleSheet,
     Image,
-    Pressable
+    Pressable,
+    TextInput
 } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
 
-const Landing = () => {
+const Login = () => {
     const navigation = useNavigation();
 
     async function handleLogin() {
         try {
-            navigation.navigate("Login" as never);
+            navigation.navigate("Home" as never);
         } catch (err) {
-            console.log(err)
+
         }
 
     }
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>
-                Stree-Saksham Welcomes You!
-            </Text>
             <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
-                <Image source={require('../assets/images/woman.png')}
+                <Image source={require('../assets/images/woman2.png')}
                     style={styles.image} />
+                <Text style={styles.title}>
+                    Jump back to where you left off!
+                </Text>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Username"
+                        style={styles.input}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        placeholder="Password"
+                        style={styles.input}
+                        autoCapitalize="none"
+                    />
+                </View>
 
-                    <Pressable style={styles.button1}>
-                        <Text style={styles.btnText}>
-                            Get Started
-                        </Text>
-                    </Pressable>
-                    <Pressable onPress={handleLogin} style={styles.button2}>
-                        <Text style={styles.btnText}>
-                            Login
-                        </Text>
-                    </Pressable>
+                <Pressable onPress={handleLogin} style={styles.button2}>
+                    <Text style={styles.btnText}>
+                        Login
+                    </Text>
+                </Pressable>
             </LinearGradient>
         </View>
     )
@@ -53,15 +61,16 @@ const styles = StyleSheet.create({
 
     },
     title: {
+        color: '#590D22',
         display: 'flex',
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',
-        fontSize: 42,
-        padding: 60,
+        fontSize: 25,
+        padding: 20,
     },
     container2: {
-        height: '70%',
+        height: '90%',
         width: '100%',
         borderRadius: 50
     },
@@ -70,13 +79,35 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '40%',
-        width: '90%',
-        marginTop: 25,
+        height: '30%',
+        width: '80%',
+        marginTop: 40,
         borderRadius: 50,
-        marginLeft: 20,
+        marginLeft: 40,
     },
-    button1:{
+    inputContainer: {
+        marginTop: 50,
+        display: 'flex',
+        gap: 35,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    input: {
+        display: 'flex',
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#D9D9D9',
+        height: 66,
+        width: 314,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#590D22',
+        borderRadius: 50
+    },
+
+    button1: {
         position: 'absolute',
         bottom: 160,
         left: 80,
@@ -89,7 +120,7 @@ const styles = StyleSheet.create({
         width: 239,
         borderRadius: 50
     },
-    button2:{
+    button2: {
         position: 'absolute',
         bottom: 70,
         left: 80,
@@ -102,7 +133,7 @@ const styles = StyleSheet.create({
         width: 239,
         borderRadius: 50
     },
-    btnText:{
+    btnText: {
         display: 'flex',
         textAlign: 'center',
         fontWeight: 'bold',
@@ -111,4 +142,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Landing
+export default Login

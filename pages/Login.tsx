@@ -14,17 +14,16 @@ import { useNavigation } from "@react-navigation/native";
 const Login = () => {
     const navigation = useNavigation();
 
-    const handleLogin = () => {
+    async function handleLogin() {
         try {
-            console.log("Home")
-            // navigation.navigate("Home" as never);
+            navigation.navigate("Home" as never);
         } catch (err) {
             console.log(err)
         }
 
     }
 
-    const handleSignup = () => {
+    async function handleSignup () {
         try {
             navigation.navigate("Signup" as never);
         } catch (error) {

@@ -36,7 +36,13 @@ export default function App() {
             backgroundColor: '#FFB3C1'
           }
         }}/>
-
+        <Stack.Screen name="Home" component={Signup} options={{
+          title: 'Home',
+          headerTintColor: '#590D22',
+          headerStyle: {
+            backgroundColor: '#FFB3C1'
+          }
+        }}/>
 
       </Stack.Navigator>
       <StatusBar style="auto" />

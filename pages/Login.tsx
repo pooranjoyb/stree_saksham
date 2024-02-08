@@ -46,21 +46,22 @@ const Login = () => {
                         autoCapitalize="none"
                     />
                     <TextInput
+                        secureTextEntry={true}
                         placeholder="Password"
                         style={styles.input}
                         autoCapitalize="none"
                     />
-                </View>
 
-                <Pressable onPress={handleLogin} style={styles.button2}>
-                    <Text style={styles.btnText}>
-                        Login
-                    </Text>
-                </Pressable>
-                <View>
-                    <Text onPress={handleSignup} style={styles.title2}>
-                        Don't Have an account? <u>Click here</u>
-                    </Text>
+                    <Pressable onPress={handleLogin} style={styles.button2}>
+                        <Text style={styles.btnText}>
+                            Login
+                        </Text>
+                    </Pressable>
+                    <View style={styles.title2}>
+                        <Text onPress={handleSignup}>
+                            Don't Have an account? <Text style={styles.underline}>Click here</Text>
+                        </Text>
+                    </View>
                 </View>
             </LinearGradient>
         </View>
@@ -89,12 +90,8 @@ const styles = StyleSheet.create({
 
     title2: {
         color: '#590D22',
-        display: 'flex',
         alignItems: 'center',
-        textAlign: 'center',
-        justifyContent: 'center',
-        fontSize: 20,
-        marginTop: 200,
+        fontSize: 30,
         fontWeight: 'bold',
     },
 
@@ -114,10 +111,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginLeft: 40,
     },
+
     inputContainer: {
-        marginTop: 50,
+        marginTop: 20,
         display: 'flex',
-        gap: 35,
+        gap: 30,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -137,10 +135,6 @@ const styles = StyleSheet.create({
     },
 
     button2: {
-        position: 'absolute',
-        zIndex: 10,
-        bottom: 100,
-        left: 80,
         display: 'flex',
         textAlign: 'center',
         justifyContent: 'center',
@@ -157,6 +151,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 32,
         color: '#590D22'
+    },
+
+    underline: {
+        textDecorationLine: 'underline'
     }
 })
 

@@ -41,13 +41,13 @@ const Signup = () => {
                         style={styles.input}
                         autoCapitalize="none"
                     />
-                </View>
 
-                <Pressable onPress={handleLogin} style={styles.button2}>
-                    <Text style={styles.btnText}>
-                        Signup
-                    </Text>
-                </Pressable>
+                    <Pressable onPress={handleLogin} style={styles.button2}>
+                        <Text style={styles.btnText}>
+                            Signup
+                        </Text>
+                    </Pressable>
+                </View>
             </LinearGradient>
         </View>
     )
@@ -124,9 +124,6 @@ const styles = StyleSheet.create({
         borderRadius: 50
     },
     button2: {
-        position: 'absolute',
-        bottom: 70,
-        left: 80,
         display: 'flex',
         textAlign: 'center',
         justifyContent: 'center',

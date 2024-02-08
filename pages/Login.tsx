@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Image,
     Pressable,
-    TextInput
+    TextInput,
+    ScrollView
 } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
@@ -39,30 +40,32 @@ const Login = () => {
                 <Text style={styles.title}>
                     Jump back to where you left off!
                 </Text>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        placeholder="Username"
-                        style={styles.input}
-                        autoCapitalize="none"
-                    />
-                    <TextInput
-                        secureTextEntry={true}
-                        placeholder="Password"
-                        style={styles.input}
-                        autoCapitalize="none"
-                    />
+                <ScrollView >
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            placeholder="Username"
+                            style={styles.input}
+                            autoCapitalize="none"
+                        />
+                        <TextInput
+                            secureTextEntry={true}
+                            placeholder="Password"
+                            style={styles.input}
+                            autoCapitalize="none"
+                        />
 
-                    <Pressable onPress={handleLogin} style={styles.button2}>
-                        <Text style={styles.btnText}>
-                            Login
-                        </Text>
-                    </Pressable>
-                    <View style={styles.title2}>
-                        <Text onPress={handleSignup}>
-                            Don't Have an account? <Text style={styles.underline}>Click here</Text>
-                        </Text>
+                        <Pressable onPress={handleLogin} style={styles.button2}>
+                            <Text style={styles.btnText}>
+                                Login
+                            </Text>
+                        </Pressable>
+                        <View style={styles.title2}>
+                            <Text onPress={handleSignup}>
+                                Don't Have an account? <Text style={styles.underline}>Click here</Text>
+                            </Text>
+                        </View>
                     </View>
-                </View>
+                </ScrollView>
             </LinearGradient>
         </View>
     )

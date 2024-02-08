@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Image,
     Pressable,
-    TextInput
+    TextInput,
+    ScrollView
 } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
@@ -30,24 +31,27 @@ const Signup = () => {
                 <Text style={styles.title}>
                     Hop into our community!
                 </Text>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        placeholder="Username"
-                        style={styles.input}
-                        autoCapitalize="none"
-                    />
-                    <TextInput
-                        placeholder="Password"
-                        style={styles.input}
-                        autoCapitalize="none"
-                    />
+                <ScrollView >
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            placeholder="Username"
+                            style={styles.input}
+                            autoCapitalize="none"
+                        />
+                        <TextInput
+                            secureTextEntry={true}
+                            placeholder="Password"
+                            style={styles.input}
+                            autoCapitalize="none"
+                        />
 
-                    <Pressable onPress={handleLogin} style={styles.button2}>
-                        <Text style={styles.btnText}>
-                            Signup
-                        </Text>
-                    </Pressable>
-                </View>
+                        <Pressable onPress={handleLogin} style={styles.button2}>
+                            <Text style={styles.btnText}>
+                                Signup
+                            </Text>
+                        </Pressable>
+                    </View>
+                </ScrollView>
             </LinearGradient>
         </View>
     )

@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/raleway": "^0.2.3",
     "@expo/webpack-config": "^19.0.1",
+    "@react-navigation/drawer": "^6.6.7",
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/stack": "^6.3.21",
     "bcrypt": "^5.1.1",

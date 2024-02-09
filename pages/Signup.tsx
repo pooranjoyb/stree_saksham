@@ -1,59 +1,99 @@
+import React, { useState, useEffect } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
-import {
-    View,
-    Text,
-    StyleSheet,
-    Image,
-    Pressable,
-    TextInput,
-    ScrollView
-} from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, Pressable, TextInput, ScrollView } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
+import FlashMessage from 'react-native-flash-message';
+import { showMessage } from "react-native-flash-message";
+
+// firebase
+import db from '../utils/firebase/config';
+import { doc, collection, query, where, setDoc, getDocs } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 
 const Signup = () => {
-    const navigation = useNavigation();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    // const navigation = useNavigation();
 
     async function handleLogin() {
+        const usersCollectionRef = collection(db, 'Users');
+        const q = query(usersCollectionRef, where('username', '==', username));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+            showMessage({
+                message: "User already Exist!",
+                description: "Use your Credentials to Login",
+                type: "success",
+            });
+            return;
+        }
+
         try {
-            console.log("Home Page")
+            const auth = getAuth();
+            const userCredential = await createUserWithEmailAndPassword(auth, `${username}@gsc.com`, password);
+
+            await setDoc(doc(db, 'Users', userCredential.user.uid), {
+                username,
+                password: password
+            });
+
+            showMessage({
+                message: "Account Successfully Created!",
+                description: "Use the Credentials to Login",
+                type: "success",
+            });
             // navigation.navigate("Home" as never);
-        } catch (err) {
-            console.log(err)
+        } catch (error) {
+            showMessage({
+                message: "Error",
+                description: `${error}`,
+                type: "danger",
+            });
         }
 
     }
     return (
-        <View style={styles.container}>
-            <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
-                <Image source={require('../assets/images/woman2.png')}
-                    style={styles.image} />
-                <Text style={styles.title}>
-                    Hop into our community!
-                </Text>
-                <ScrollView >
-                    <View style={styles.inputContainer}>
-                        <TextInput
-                            placeholder="Username"
-                            style={styles.input}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            secureTextEntry={true}
-                            placeholder="Password"
-                            style={styles.input}
-                            autoCapitalize="none"
-                        />
+        <>
+            <View style={styles.container}>
+                <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
+                    <Image source={require('../assets/images/woman2.png')}
+                        style={styles.image} />
+                    <Text style={styles.title}>
+                        Hop into our community!
+                    </Text>
+                    <ScrollView >
+                        <View style={styles.inputContainer}>
+                            <TextInput
+                                placeholder="Username"
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value={username}
+                                onChangeText={(text) => setUsername(text)}
+                            />
+                            <TextInput
+                                secureTextEntry={true}
+                                placeholder="Password"
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value={password}
+                                onChangeText={text => setPassword(text)}
+                            />
 
-                        <Pressable onPress={handleLogin} style={styles.button2}>
-                            <Text style={styles.btnText}>
-                                Signup
-                            </Text>
-                        </Pressable>
-                    </View>
-                </ScrollView>
-            </LinearGradient>
-        </View>
+                            <Pressable
+                                onPress={handleLogin}
+                                style={styles.button2}>
+                                <Text style={styles.btnText}>
+                                    Signup
+                                </Text>
+                            </Pressable>
+                        </View>
+                    </ScrollView>
+                </LinearGradient>
+            </View>
+            <FlashMessage position="top" />
+        </>
     )
 }
 

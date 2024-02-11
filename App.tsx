@@ -6,6 +6,7 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import Jobs from './pages/Jobs';
 
 const Stack = createStackNavigator();
 
@@ -13,8 +14,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-      // initialRouteName="Get Started"
-      // initialRouteName="Home"
+     // initialRouteName="Get Started"
+      // initialRouteName="Jobs"
       >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
@@ -39,6 +40,13 @@ export default function App() {
         }}/>
         <Stack.Screen name="Home" component={Home} options={{
           title: 'Home',
+          headerTintColor: '#590D22',
+          headerStyle: {
+            backgroundColor: '#FFB3C1'
+          }
+        }}/>
+        <Stack.Screen name="Jobs" component={Jobs} options={{
+          title: 'Jobs',
           headerTintColor: '#590D22',
           headerStyle: {
             backgroundColor: '#FFB3C1'

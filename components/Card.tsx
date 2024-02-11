@@ -6,17 +6,15 @@ interface CardProps {
     description: string;
 }
 
-const Card = ({title, description}: CardProps) => {
+const Card = ({ title, description }: CardProps) => {
     return (
-        <View>
-            <Pressable style={styles.button}>
-                <Text style={styles.btnText}>
-                    {title}
-                </Text>
-                <Text style={styles.btnDesc}>
-                    {description}
-                </Text>
-            </Pressable>
+        <View style={styles.button}>
+            <Text style={styles.btnText}>
+                {title}
+            </Text>
+            <Text style={styles.btnDesc}>
+                {description}
+            </Text>
         </View>
     )
 }
@@ -27,8 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#A4133C',
         height: 133,
-        width: 395,
-        marginLeft: 10,
+        width: '100%',
         marginTop: 20,
         marginBottom: 5,
         borderRadius: 50

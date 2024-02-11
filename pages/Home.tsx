@@ -9,35 +9,42 @@ import MiniCard from '../components/MiniCard';
 const Home = () => {
     const navigation = useNavigation();
 
+    const nav = (link: string) => {
+        navigation.navigate(link as never)
+    }
+
     return (
         <View style={styles.container}>
-
             <ScrollView>
-                <View style={styles.container}>
+                <View style={{ height: 90 }}>
                     <Text style={styles.title}>
                         Home
                     </Text>
-                    <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
-
-                        <Card title="Legal Reforms" description="Know your legal rights and learn to defend yourself!" />
-
-                        <Card title="Therapy Sessions" description="Fight with your mental trauma!" />
-
-                        <Card title="Rehabilitation" description="Get yourself a Work and be independent!" />
-
-                        <Text style={styles.title2}>
-                            Career Management
-                        </Text>
-
-                        <View style={styles.careerBox}>
-
-                            <MiniCard title="Jobs" description="Get yourself a Job!" />
-                            <MiniCard title="Freelancing" description="Find Remote Works" />
-                            <MiniCard title="Personal Guide" description="Let us guide you through" />
-                            <MiniCard title="Financial Guidance" description="Manage your money" />
-                        </View>
-                    </LinearGradient>
                 </View>
+
+                <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
+
+                    <Card title="Legal Reforms" description="Know your legal rights and learn to defend yourself!" />
+
+                    <Card title="Therapy Sessions" description="Fight with your mental trauma!" />
+
+                    <Card title="Rehabilitation" description="Get yourself a Work and be independent!" />
+
+                    <Text style={styles.title2}>
+                        Career Management
+                    </Text>
+
+                    <View style={styles.careerBox}>
+
+                        <Pressable onPress={() => navigation.navigate("Jobs" as never)}>
+                            <MiniCard title="Jobs" description="Get yourself a Job!" />
+                        </Pressable>
+
+                        <MiniCard title="Freelancing" description="Find Remote Works" />
+                        <MiniCard title="Personal Guide" description="Let us guide you through" />
+                        <MiniCard title="Financial Guidance" description="Manage your money" />
+                    </View>
+                </LinearGradient>
             </ScrollView>
         </View >
     );
@@ -50,6 +57,15 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: "#FFB3C1",
         justifyContent: "center",
+    },
+
+    container2: {
+        height: '100%',
+        width: '100%',
+        zIndex: 100,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderRadius: 50
     },
 
     title: {
@@ -76,12 +92,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         padding: 10,
-    },
-
-    container2: {
-        height: '80%',
-        width: '100%',
-        borderRadius: 50
     },
 
     btnText: {

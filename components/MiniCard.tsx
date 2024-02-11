@@ -6,17 +6,15 @@ interface MiniCardProps {
     description: string;
 }
 
-const MiniCard = ({title, description}: MiniCardProps) => {
+const MiniCard = ({ title, description }: MiniCardProps) => {
     return (
-        <View>
-            <Pressable style={styles.button}>
-                <Text style={styles.btnText}>
-                    {title}
-                </Text>
-                <Text style={styles.btnDesc}>
-                    {description}
-                </Text>
-            </Pressable>
+        <View style={styles.button}>
+            <Text style={styles.btnText}>
+                {title}
+            </Text>
+            <Text style={styles.btnDesc}>
+                {description}
+            </Text>
         </View>
     )
 }
@@ -27,7 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#A4133C',
         height: 133,
-        width: 179,
+        width: 170,
         marginLeft: 10,
         marginTop: 20,
         marginBottom: 5,

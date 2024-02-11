@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Home from './pages/Home';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator 
       // initialRouteName="Get Started"
-      // initialRouteName="Login"
+      // initialRouteName="Home"
       >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
@@ -36,7 +37,7 @@ export default function App() {
             backgroundColor: '#FFB3C1'
           }
         }}/>
-        <Stack.Screen name="Home" component={Signup} options={{
+        <Stack.Screen name="Home" component={Home} options={{
           title: 'Home',
           headerTintColor: '#590D22',
           headerStyle: {

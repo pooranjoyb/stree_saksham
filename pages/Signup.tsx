@@ -14,7 +14,6 @@ const Signup = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const navigation = useNavigation();
 
     async function handleLogin() {
         const usersCollectionRef = collection(db, 'Users');
@@ -44,7 +43,6 @@ const Signup = () => {
                 description: "Use the Credentials to Login",
                 type: "success",
             });
-            // navigation.navigate("Home" as never);
         } catch (error) {
             showMessage({
                 message: "Error",

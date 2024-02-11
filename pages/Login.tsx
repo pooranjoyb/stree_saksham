@@ -8,22 +8,43 @@ import {
     TextInput,
     ScrollView
 } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigation } from "@react-navigation/native";
+import FlashMessage from 'react-native-flash-message';
+import { showMessage } from "react-native-flash-message";
+
+// firebase
+import db from '../utils/firebase/config';
+import { doc, collection, query, where, setDoc, getDocs } from 'firebase/firestore';
 
 const Login = () => {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
     const navigation = useNavigation();
 
+
     async function handleLogin() {
-        try {
-            navigation.navigate("Home" as never);
-        } catch (err) {
-            console.log(err)
+        const usersCollectionRef = collection(db, 'Users');
+        const q = query(usersCollectionRef, where('username', '==', username));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            showMessage({
+                message: "Invalid Username or Password!",
+                description: "Signup to StreeSaksham",
+                type: "danger",
+            });
+            return;
         }
 
+        else {
+            navigation.navigate("Home" as never);
+        }
     }
 
-    async function handleSignup () {
+    async function handleSignup() {
         try {
             navigation.navigate("Signup" as never);
         } catch (error) {
@@ -32,41 +53,48 @@ const Login = () => {
     }
 
     return (
-        <View style={styles.container}>
-            <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
-                <Image source={require('../assets/images/woman2.png')}
-                    style={styles.image} />
-                <Text style={styles.title}>
-                    Jump back to where you left off!
-                </Text>
-                <ScrollView >
-                    <View style={styles.inputContainer}>
-                        <TextInput
-                            placeholder="Username"
-                            style={styles.input}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            secureTextEntry={true}
-                            placeholder="Password"
-                            style={styles.input}
-                            autoCapitalize="none"
-                        />
+        <>
+            <View style={styles.container}>
+                <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
+                    <Image source={require('../assets/images/woman2.png')}
+                        style={styles.image} />
+                    <Text style={styles.title}>
+                        Jump back to where you left off!
+                    </Text>
+                    <ScrollView >
+                        <View style={styles.inputContainer}>
+                            <TextInput
+                                placeholder="Username"
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value={username}
+                                onChangeText={(text) => setUsername(text)}
+                            />
+                            <TextInput
+                                secureTextEntry={true}
+                                placeholder="Password"
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value={password}
+                                onChangeText={text => setPassword(text)}
+                            />
 
-                        <Pressable onPress={handleLogin} style={styles.button2}>
-                            <Text style={styles.btnText}>
-                                Login
-                            </Text>
-                        </Pressable>
-                        <View style={styles.title2}>
-                            <Text onPress={handleSignup}>
-                                Don't Have an account? <Text style={styles.underline}>Click here</Text>
-                            </Text>
+                            <Pressable onPress={handleLogin} style={styles.button2}>
+                                <Text style={styles.btnText}>
+                                    Login
+                                </Text>
+                            </Pressable>
+                            <View style={styles.title2}>
+                                <Text onPress={handleSignup}>
+                                    Don't Have an account? <Text style={styles.underline}>Click here</Text>
+                                </Text>
+                            </View>
                         </View>
-                    </View>
-                </ScrollView>
-            </LinearGradient>
-        </View>
+                    </ScrollView>
+                </LinearGradient>
+            </View>
+            <FlashMessage position="top" />
+        </>
     )
 }
 

@@ -15,7 +15,8 @@ import { showMessage } from "react-native-flash-message";
 
 // firebase
 import db from '../utils/firebase/config';
-import { doc, collection, query, where, setDoc, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
 
@@ -39,7 +40,11 @@ const Login = () => {
             return;
         }
 
-        else {
+        const auth = getAuth();
+        const userCredential = await signInWithEmailAndPassword(auth, `${username}@gsc.com`, password);
+
+        if (userCredential) {
+
             navigation.navigate("Home" as never);
         }
     }

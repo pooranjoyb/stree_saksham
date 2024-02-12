@@ -27,8 +27,9 @@ const Home = () => {
                     <Card title="Legal Reforms" description="Know your legal rights and learn to defend yourself!" />
 
                     <Card title="Therapy Sessions" description="Fight with your mental trauma!" />
-
-                    <Card title="Rehabilitation" description="Get yourself a Work and be independent!" />
+                    <Pressable onPress={() => navigation.navigate("Community" as never)}>
+                        <Card title="Community" description="Join the community" />
+                    </Pressable>
 
                     <Text style={styles.title2}>
                         Career Management

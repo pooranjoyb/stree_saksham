@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, StyleSheet, Image, Pressable, TextInput, ScrollView } from 'react-native'
-import { useNavigation } from "@react-navigation/native";
 import FlashMessage from 'react-native-flash-message';
 import { showMessage } from "react-native-flash-message";
 

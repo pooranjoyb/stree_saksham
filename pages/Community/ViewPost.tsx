@@ -29,8 +29,13 @@ const ViewPost = () => {
 
                 <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
 
-                    <Card title={doc.data.title} description={doc.data.desc} />
+                    <Card title={doc.data.title} description="" />
 
+                    <View style={styles.description}>
+                        <Text style={styles.btnDesc}>
+                            {doc.data.desc}
+                        </Text>
+                    </View>
                 </LinearGradient>
             </ScrollView>
         </View >
@@ -65,37 +70,30 @@ const styles = StyleSheet.create({
         padding: 10,
     },
 
-    button: {
+    description: {
         display: 'flex',
         textAlign: 'center',
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#A4133C',
-        height: 66,
-        marginTop: 20,
         width: '100%',
+        marginTop: 20,
+        marginBottom: 5,
         borderRadius: 50
     },
 
-    btnText: {
+    btnDesc: {
         display: 'flex',
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 22,
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingBottom: 25,
+        paddingTop: 25,
+        fontSize: 16,
+        marginTop: 10,
         color: '#ffff'
     },
 
     underline: {
         textDecorationLine: 'underline'
-    },
-
-    careerBox: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignContent: 'center',
-        justifyContent: 'center'
     },
     activityIndicator: {
         alignSelf: 'center',

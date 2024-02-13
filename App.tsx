@@ -19,7 +19,7 @@ export default function App() {
       <Stack.Navigator
         // initialRouteName="Get Started"
         // initialRouteName="Community"
-      >
+      > 
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
           headerTintColor: '#590D22',

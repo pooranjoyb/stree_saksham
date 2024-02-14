@@ -20,7 +20,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
       // initialRouteName="Get Started"
-      // initialRouteName="LegalReforms"
+      initialRouteName="Home"
       >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',

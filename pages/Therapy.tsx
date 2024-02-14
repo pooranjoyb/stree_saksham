@@ -11,7 +11,7 @@ const Therapy = () => {
             <ScrollView>
                 <View style={{ height: 90 }}>
                     <Text style={styles.title}>
-                        Therapy
+                        Contact our Therapists
                     </Text>
                 </View>
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',
-        fontSize: 40,
+        fontSize: 30,
         fontWeight: 'bold',
         padding: 10,
     },

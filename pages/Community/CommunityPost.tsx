@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Pressable, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from "@react-navigation/native";
 import FlashMessage from 'react-native-flash-message';
 import { showMessage } from "react-native-flash-message";
 
@@ -16,15 +15,10 @@ interface POST {
 }
 
 const CommunityPosts = () => {
-    const navigation = useNavigation();
-
-    const [loading, setLoading] = useState(true)
-    const [post, setPost] = useState<POST[]>([]);
 
     const [title, setTitle] = useState('');
     const [brief, setBrief] = useState('');
     const [desc, setDesc] = useState('');
-
 
     const handlePost = async () => {
         const postData: POST = {

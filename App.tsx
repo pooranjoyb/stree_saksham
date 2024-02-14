@@ -10,6 +10,7 @@ import Jobs from './pages/Jobs';
 import Community from './pages/Community/Community';
 import CommunityPosts from './pages/Community/CommunityPost';
 import ViewPost from './pages/Community/ViewPost';
+import Therapy from './pages/Therapy';
 
 const Stack = createStackNavigator();
 
@@ -17,9 +18,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // initialRouteName="Get Started"
-        // initialRouteName="Community"
-      > 
+      // initialRouteName="Get Started"
+      // initialRouteName="Therapy"
+      >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
           headerTintColor: '#590D22',
@@ -71,7 +72,6 @@ export default function App() {
         }} />
         <Stack.Screen
           name="ViewPost"
-          component={(props : any) => <ViewPost {...props} />}
           options={{
             title: 'View Post',
             headerTintColor: '#590D22',
@@ -79,7 +79,16 @@ export default function App() {
               backgroundColor: '#FFB3C1'
             }
           }}
-        />
+        >
+          {(props: any) => <ViewPost {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Therapy" component={Therapy} options={{
+          title: 'Therapy',
+          headerTintColor: '#590D22',
+          headerStyle: {
+            backgroundColor: '#FFB3C1'
+          }
+        }} />
 
       </Stack.Navigator>
       <StatusBar style="auto" />

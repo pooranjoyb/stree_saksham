@@ -25,8 +25,9 @@ const Home = () => {
                 <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
 
                     <Card title="Legal Reforms" description="Know your legal rights and learn to defend yourself!" />
-
-                    <Card title="Therapy Sessions" description="Fight with your mental trauma!" />
+                    <Pressable onPress={() => navigation.navigate("Therapy" as never)}>
+                        <Card title="Therapy Sessions" description="Fight with your mental trauma!" />
+                    </Pressable>
                     <Pressable onPress={() => navigation.navigate("Community" as never)}>
                         <Card title="Community" description="Join the community" />
                     </Pressable>
@@ -66,7 +67,8 @@ const styles = StyleSheet.create({
         zIndex: 100,
         paddingLeft: 10,
         paddingRight: 10,
-        borderRadius: 50
+        borderRadius: 50,
+        paddingBottom: 30
     },
 
     title: {

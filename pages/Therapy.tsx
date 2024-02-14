@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, Pressable, ScrollView, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from "@react-navigation/native";
 
 import Card from '../components/Card';
-
-// firebase
-import db from '../utils/firebase/config';
-import { doc, collection, query, where, setDoc, getDocs } from 'firebase/firestore';
-
-interface POST {
-    desc: string;
-    brief: string;
-    title: string;
-}
 
 const Therapy = () => {
 

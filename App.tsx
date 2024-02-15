@@ -12,6 +12,7 @@ import CommunityPosts from './pages/Community/CommunityPost';
 import ViewPost from './pages/Community/ViewPost';
 import Therapy from './pages/Therapy';
 import LegalReforms from './pages/LegalReforms';
+import Freelancing from './pages/PersonalGuide';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
       // initialRouteName="Get Started"
-      initialRouteName="Home"
+      initialRouteName="Get Started"
       >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
@@ -92,6 +93,13 @@ export default function App() {
         }} />
         <Stack.Screen name="LegalReforms" component={LegalReforms} options={{
           title: 'Legal Reforms',
+          headerTintColor: '#590D22',
+          headerStyle: {
+            backgroundColor: '#FFB3C1'
+          }
+        }} />
+        <Stack.Screen name="PersonalGuide" component={Freelancing} options={{
+          title: 'Personal Guide',
           headerTintColor: '#590D22',
           headerStyle: {
             backgroundColor: '#FFB3C1'

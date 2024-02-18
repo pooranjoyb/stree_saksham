@@ -44,8 +44,14 @@ const Home = () => {
                             <MiniCard title="Jobs" description="Get yourself a Job!" />
                         </Pressable>
 
-                        <MiniCard title="Freelancing" description="Find Remote Works" />
-                        <MiniCard title="Personal Guide" description="Let us guide you through" />
+                        <Pressable onPress={() => navigation.navigate("Skill" as never)}>
+                            <MiniCard title="Skill" description="Enhance" />
+                        </Pressable>
+
+                        <Pressable onPress={() => navigation.navigate("PersonalGuide" as never)}>
+                            <MiniCard title="Personal Guide" description="Let us guide you through" />
+                        </Pressable>
+
                         <MiniCard title="Financial Guidance" description="Manage your money" />
                     </View>
                 </LinearGradient>

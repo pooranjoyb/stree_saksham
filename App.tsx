@@ -12,7 +12,8 @@ import CommunityPosts from './pages/Community/CommunityPost';
 import ViewPost from './pages/Community/ViewPost';
 import Therapy from './pages/Therapy';
 import LegalReforms from './pages/LegalReforms';
-import Freelancing from './pages/PersonalGuide';
+import PersonalGuide from './pages/PersonalGuide';
+import Skill from './pages/Skill';
 
 const Stack = createStackNavigator();
 
@@ -21,7 +22,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
       // initialRouteName="Get Started"
-      initialRouteName="Get Started"
+      // initialRouteName="Skill"
       >
         <Stack.Screen name="Get started" component={Landing} options={{
           title: 'Welcome',
@@ -98,8 +99,16 @@ export default function App() {
             backgroundColor: '#FFB3C1'
           }
         }} />
-        <Stack.Screen name="PersonalGuide" component={Freelancing} options={{
+        <Stack.Screen name="PersonalGuide" component={PersonalGuide} options={{
           title: 'Personal Guide',
+          headerTintColor: '#590D22',
+          headerStyle: {
+            backgroundColor: '#FFB3C1'
+          }
+        }} />
+
+        <Stack.Screen name="Skill" component={Skill} options={{
+          title: 'Skill',
           headerTintColor: '#590D22',
           headerStyle: {
             backgroundColor: '#FFB3C1'

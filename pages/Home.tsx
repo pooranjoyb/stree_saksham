@@ -52,7 +52,9 @@ const Home = () => {
                             <MiniCard title="Personal Guide" description="Let us guide you through" />
                         </Pressable>
 
-                        <MiniCard title="Financial Guidance" description="Manage your money" />
+                        <Pressable onPress={() => navigation.navigate("FinancialGuidance" as never)}>
+                            <MiniCard title="Financial Guidance" description="Manage your money" />
+                        </Pressable>
                     </View>
                 </LinearGradient>
             </ScrollView>

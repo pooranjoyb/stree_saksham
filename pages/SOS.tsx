@@ -5,10 +5,16 @@ import {
     StyleSheet,
     Image,
     Pressable,
+    Linking,
 } from 'react-native'
 import React from 'react'
 
 const SOS = () => {
+
+    const handleSOSCall = () => {
+        Linking.openURL('tel:911');
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
@@ -16,8 +22,10 @@ const SOS = () => {
             </Text>
             <LinearGradient colors={['#FF4D6D', '#FF8FA3', '#FFB3C1']} style={styles.container2}>
                 <View style={styles.imageContainer}>
-                    <Image source={require('../assets/images/sos.png')}
-                        style={styles.image} />
+                    <Pressable onPress={handleSOSCall}>
+                        <Image source={require('../assets/images/sos.png')}
+                            style={styles.image} />
+                    </Pressable>
                 </View>
 
                 <Pressable style={styles.button1}>

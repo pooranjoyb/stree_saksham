@@ -1,6 +1,13 @@
+
+<div align="center">
+ 
 # Stree_Saksham 🚀
 
+<img src="https://github.com/pooranjoyb/stree_saksham/assets/90945182/a3da3b3f-1c08-4182-9c6b-c65f4df5d662" width=800 />
+</div>
+
 ## Introduction
+
 Stree_Saksham is a mobile application designed to empower women by providing them with a platform that offers various features aimed at promoting workplace equality, legal reforms, help forums, and text-based community bonding. The app is built using Expo React Native and Firebase for managing posts and backend functionalities. It is currently available for Android devices.
 
 ## Mockups
@@ -46,6 +53,10 @@ cd stree_saksham
 ```bash
 npm start
 ```
+
+## Demonstation Video
+
+### [Youtube Link](https://youtu.be/18RoP0x8GOY)
  
 ## LICENSE
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

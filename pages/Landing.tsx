@@ -4,7 +4,8 @@ import {
     Text, 
     StyleSheet, 
     Image,
-    Pressable
+    Pressable,
+    Linking
 } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
@@ -29,7 +30,7 @@ const Landing = () => {
                 <Image source={require('../assets/images/woman.png')}
                     style={styles.image} />
 
-                    <Pressable style={styles.button1}>
+                    <Pressable style={styles.button1} onPress={() => Linking.openURL("https://docs.google.com/document/d/1L2Izh9X-gOnezRhdy_xLXs7Jac3b16n2MFiIkzAin9c/edit?usp=drive_link")}>
                         <Text style={styles.btnText}>
                             Get Started
                         </Text>
